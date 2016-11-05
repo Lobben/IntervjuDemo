@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FullContactTest", "FullContactTest\FullContactTest.csproj", "{53F6EC0F-2BCA-4BCA-99A1-577BB757DA1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FullContactLib", "FullContactLib\FullContactLib.csproj", "{35D40343-50BF-4D49-A31A-65D274920265}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53F6EC0F-2BCA-4BCA-99A1-577BB757DA1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53F6EC0F-2BCA-4BCA-99A1-577BB757DA1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53F6EC0F-2BCA-4BCA-99A1-577BB757DA1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53F6EC0F-2BCA-4BCA-99A1-577BB757DA1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35D40343-50BF-4D49-A31A-65D274920265}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35D40343-50BF-4D49-A31A-65D274920265}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35D40343-50BF-4D49-A31A-65D274920265}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35D40343-50BF-4D49-A31A-65D274920265}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
