@@ -21,20 +21,20 @@ namespace FullContactLib
         const string QueryParameter = "email";
         const string AuthenticationHeaderField = "X-FullContact-APIKey";
 
-        //This is the API-key
-        readonly string secretKey;
+        readonly string secretKey;  //This is the API-key
+      
+        RestClient client;          //The client that executes the request to the API
 
-        //The client that executes the request to the API
-        RestClient client;
-
-        //The only constructor, you need to pass a key to the FullContact API
+        /*constructor: you need to pass a key to the FullContact API*/
         public FullContactApi(string secretKey)
         {
             this.client = new RestClient();
             this.client.BaseUrl = new Uri(Url);
             this.secretKey = secretKey;
         }
-        
+
+        /*public functions*/
+
         //Async function that returns a task with a FullContactPerson.
         //Takes a string in email-format and access the FullContact Person API
         //  to generate the data.
@@ -55,6 +55,8 @@ namespace FullContactLib
 
             return personData;
         }
+
+        /*private functions*/
 
         //Takes an email and generate a RestRequest with the query and key that is allready defined
         private RestRequest generateRequest(string email)
@@ -91,7 +93,5 @@ namespace FullContactLib
         {
             return JsonConvert.DeserializeObject<FullContactPerson>(json);
         }
-
-
     }
 }

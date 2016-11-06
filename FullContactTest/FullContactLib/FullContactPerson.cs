@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace FullContactLib
 {
-    /* Data about a person, used to store data from FullContact Person Api*/
+    //Data about a person, used to store data from FullContact Person Api
     public class FullContactPerson
     {
         public class ContactInfo
