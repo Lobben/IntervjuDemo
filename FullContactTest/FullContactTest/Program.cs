@@ -1,28 +1,34 @@
 ﻿using FullContactLib;
-using Nito.AsyncEx;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mail;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FullContactTest
 {
 
     class Program {
-        static async Task<int> AsyncMain()
+        static void ConsoleLoop()
         {
+            //We get the key from the App.config
             string key = System.Configuration.ConfigurationManager.AppSettings["ApiKey"];
-            FullContactApi proxy = new FullContactApi(key);
+
+            //create one instance of our client that generates 
+            //  and executes our requests to the Fullcontact Person API
+            FullContactApi client = new FullContactApi(key);
+            
+            //Holds the input from the user
             string input="";
 
             do
             {
-               input = await Task.Run(() => Console.ReadLine());
+                input = Console.ReadLine();
+
+                //Check if the input is in email-format
                 if (input.IsEmail())
                 {
-                    Task.Run(()=>PrintFullContactPerson(proxy.LookupPersonByEmailAsync(input)));
+                    //Print out the fullcontactperson data using the email from input.
+                    //We don't have to wait for the task to finish because we will stay in the loop
+                    //until we close the program
+                    Task.Run(()=>PrintFullContactPerson(client.LookupPersonByEmailAsync(input)));
 
                 }
                 else
@@ -32,24 +38,19 @@ namespace FullContactTest
 
             } while (input.ToUpper() != "EXIT");
 
-            FullContactPerson personData = await proxy.LookupPersonByEmailAsync("lobben91@gmail.com");
-
-            Console.WriteLine("Press any key to exit.");
-            Console.ReadKey();
-
-            return 0;
-
-            
         }
 
+        //async function that Prints out the info in the FullContactPerson when the task is done
         private static async Task PrintFullContactPerson(Task<FullContactPerson> task)
         {
-            System.Console.WriteLine("\n - - - - \n"+(await task).likelihood);
+            System.Console.WriteLine((await task).ToString());
         }
 
         static void Main(string[] args)
         {
-            AsyncContext.Run(AsyncMain);
+            //Run a function responsible for the consoleApplication functionality
+            ConsoleLoop();
+
         }
     }
 }
