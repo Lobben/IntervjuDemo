@@ -17,7 +17,7 @@ namespace FullContactLib
     {
         //TODO: bra beskrivning etc this is what makes up the URI for the request.
         const string Url = "https://api.fullcontact.com";
-        const string Resource = "v2/person.json";
+        const string Resource = "1.1/statuses/filter.json";
         const string QueryParameter = "email";
         const string AuthenticationHeaderField = "X-FullContact-APIKey";
 
@@ -64,7 +64,7 @@ namespace FullContactLib
 
         private async Task<IRestResponse> getResponseAsync(RestRequest request)
         {
-            await Task.Delay(new Random().Next(60000));
+            //await Task.Delay(new Random().Next(60000));
             try
             {
                 return await client.Execute(request);
