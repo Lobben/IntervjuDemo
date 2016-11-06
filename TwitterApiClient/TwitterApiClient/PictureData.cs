@@ -5,26 +5,26 @@ using System.Text;
 
 namespace TwitterApiClient
 {
-    
+    //Stores a picture, filename and has a pointer to the metaData related to the picture
     public class PictureData
     {
-        public enum Gender
-        {
-            Male, Female
-        }
+        
         public byte[] Image;
         public string FileName;
-        public int FaceCount;
-        public Gender[] Genders;
-
-        public PictureData(byte[] imageData, string fileName, Gender[] genders)
+        public PictureMetaData MetaData;
+        
+        public PictureData(byte[] imageData, string fileName)
         {
             this.Image = imageData;
             this.FileName = fileName;
-            this.Genders = genders;
-
-            FaceCount = genders != null ? genders.Length : 0;
-
         }
+
+        public PictureData(byte[] imageData, string fileName, PictureMetaData meta)
+            : this(imageData,fileName)
+        {
+            this.MetaData = meta;
+        }
+
+
     }
 }
